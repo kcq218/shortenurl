@@ -16,8 +16,7 @@ namespace KeyGenerationService.DAL
     }
 
     private bool disposed = false;
-
-    protected virtual void Dispose(bool disposing)
+    public void Dispose(bool disposing)
     {
       if (!this.disposed)
       {
