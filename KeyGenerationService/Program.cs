@@ -1,3 +1,6 @@
+using KeyGenerationService.DAL;
+using KeyGenerationService.Models;
+using KeyGenerationService.Services;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +11,11 @@ var host = new HostBuilder()
     {
       services.AddApplicationInsightsTelemetryWorkerService();
       services.ConfigureFunctionsApplicationInsights();
+      services.AddScoped<IUnitOfWork, UnitOfWork>();
+      services.AddScoped<IRepository<GeneratedKey>, Repository<GeneratedKey>>();
+      services.AddScoped<IRepository<UrlMapping>, Repository<UrlMapping>>();
+      services.AddScoped<IRepository<UserInfo>, Repository<UserInfo>>();
+      services.AddScoped<IGenerateKeyService, GenerateKeyService>();
     })
     .Build();
 

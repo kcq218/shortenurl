@@ -6,5 +6,7 @@ namespace KeyGenerationService.DAL
     public IRepository<GeneratedKey> GeneratedKeyRepository { get; }
     public IRepository<UrlMapping> UrlMappingRepository { get; }
     public IRepository<UserInfo> UserInfoRepository { get; }
+    public void Save();
+    public void Dispose(bool disposing);
   }
 }
