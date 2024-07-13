@@ -401,3 +401,4 @@ FodyWeavers.xsd
 .vscode/settings.json
 .vscode/tasks.json
 /KeyGenerationService/Models/DbAll01ProdUswest001Context.cs
+/KeyGenerationService/local.settings.json
