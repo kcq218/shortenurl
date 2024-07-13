@@ -1,4 +1,4 @@
-namespace KeyGenerationServiceTest
+namespace URLShortener.KeyGenerationServiceTest
 {
   [TestClass]
   public class UnitTest1
