@@ -1,14 +1,13 @@
-using KeyGenerationService.DAL;
 using KeyGenerationService.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
+using URLShortener.DAL;
 
-namespace KeyGenerationService
+namespace URLShortener.KeyGenerationService
 {
   public class KGSFunction
   {
-    private readonly IUnitOfWork _unitOfWork;
     private readonly IGenerateKeyService _generateKeyService;
     public KGSFunction(IGenerateKeyService generateKeyService)
     {

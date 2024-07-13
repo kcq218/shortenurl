@@ -1,9 +1,9 @@
-using KeyGenerationService.DAL;
-using KeyGenerationService.Models;
 using KeyGenerationService.Services;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using URLShortener.Models;
+using URLShortener.DAL;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()

@@ -1,5 +1,5 @@
-﻿using KeyGenerationService.Models;
-namespace KeyGenerationService.DAL
+﻿using URLShortener.Models;
+namespace URLShortener.DAL
 {
   public interface IUnitOfWork : IDisposable
   {
