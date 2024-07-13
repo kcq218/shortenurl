@@ -2,7 +2,6 @@ using KeyGenerationService.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
-using URLShortener.DAL;
 
 namespace URLShortener.KeyGenerationService
 {
