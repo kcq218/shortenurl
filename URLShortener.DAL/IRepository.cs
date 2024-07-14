@@ -1,4 +1,4 @@
-﻿namespace KeyGenerationService.DAL
+﻿namespace URLShortener.DAL
 {
   public interface IRepository<T>
   {

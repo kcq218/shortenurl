@@ -1,4 +1,4 @@
-﻿namespace KeyGenerationService.Models;
+﻿namespace URLShortener.Models;
 
 public partial class UrlMapping
 {

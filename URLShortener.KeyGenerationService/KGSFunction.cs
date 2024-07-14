@@ -1,14 +1,12 @@
-using KeyGenerationService.DAL;
 using KeyGenerationService.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 
-namespace KeyGenerationService
+namespace URLShortener.KeyGenerationService
 {
   public class KGSFunction
   {
-    private readonly IUnitOfWork _unitOfWork;
     private readonly IGenerateKeyService _generateKeyService;
     public KGSFunction(IGenerateKeyService generateKeyService)
     {
@@ -17,7 +15,7 @@ namespace KeyGenerationService
 
     [Function("KGSFunction")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req)
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
     {
       //log.LogInformation("C# HTTP trigger function processed a request.");
 

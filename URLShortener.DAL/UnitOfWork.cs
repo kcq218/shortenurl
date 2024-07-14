@@ -1,6 +1,6 @@
-﻿using KeyGenerationService.Models;
+﻿using URLShortener.Models;
 
-namespace KeyGenerationService.DAL
+namespace URLShortener.DAL
 {
   public class UnitOfWork : IUnitOfWork
   {
