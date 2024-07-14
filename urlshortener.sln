@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.KeyGenerationS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.KeyGenerationServiceTest", "URLShortener.KeyGenerationServiceTest\URLShortener.KeyGenerationServiceTest.csproj", "{C033E465-5CC8-4AAD-B381-20D70CAA26D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.CreateService", "URLShortener.CreateService\URLShortener.CreateService.csproj", "{65B354AE-E03A-4CA9-A6EB-8DC3F66B806F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.CreateService", "URLShortener.CreateService\URLShortener.CreateService.csproj", "{65B354AE-E03A-4CA9-A6EB-8DC3F66B806F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.DAL", "URLShortener.DAL\URLShortener.DAL.csproj", "{C1DBF624-FD66-4A1D-9E61-FF57867A2AB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.DAL", "URLShortener.DAL\URLShortener.DAL.csproj", "{C1DBF624-FD66-4A1D-9E61-FF57867A2AB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Models", "URLShortener.Models\URLShortener.Models.csproj", "{61C32A42-1DF2-4757-B504-2C4FF6220C48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Models", "URLShortener.Models\URLShortener.Models.csproj", "{61C32A42-1DF2-4757-B504-2C4FF6220C48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.RedirectService", "URLShortener.RedirectService\URLShortener.RedirectService.csproj", "{C9959D52-4F71-4F96-B86C-2983A4FF71A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{61C32A42-1DF2-4757-B504-2C4FF6220C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61C32A42-1DF2-4757-B504-2C4FF6220C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61C32A42-1DF2-4757-B504-2C4FF6220C48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9959D52-4F71-4F96-B86C-2983A4FF71A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9959D52-4F71-4F96-B86C-2983A4FF71A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9959D52-4F71-4F96-B86C-2983A4FF71A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9959D52-4F71-4F96-B86C-2983A4FF71A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
