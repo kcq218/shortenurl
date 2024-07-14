@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Newtonsoft.Json;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -18,21 +19,28 @@ namespace URLShortener.RedirectService
 
     [Function("rdi")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "rdi/{hash}")] HttpRequest req, string hash)
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "rdi/{hash}")] HttpRequest req, string hash)
     {
-
-      string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-      dynamic data = JsonConvert.DeserializeObject(requestBody);
-
-      var hashOfUrl = hash;
-
-      if (hashOfUrl != null)
+      try
       {
-        var result = _redirectService.GetRedirectURL(hashOfUrl);
-        return new RedirectResult(result);
-      }
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
 
-      return new OkObjectResult("empty body request");
+        var hashOfUrl = hash;
+
+        if (hashOfUrl != null)
+        {
+          var result = _redirectService.GetRedirectURL(hashOfUrl);
+          return new RedirectResult(result);
+        }
+
+        return new OkObjectResult("empty body request");
+      }
+      catch (Exception e)
+      {
+        return new OkObjectResult(e.Message);
+
+      }
     }
   }
 }
