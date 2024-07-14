@@ -1,33 +1,38 @@
+using KeyGenerationService.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
+using Newtonsoft.Json;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Microsoft.Azure.Functions.Worker;
 
 namespace URLShortener.RedirectService
 {
-    public static class RedirectURLFunction
+  public class RedirectURLFunction
+  {
+    private readonly IRedirectService _redirectService;
+    public RedirectURLFunction(IRedirectService redirectService)
     {
-        [Function("rdi")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
-        {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-
-            string name = req.Query["name"];
-
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
-
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
-
-            return new OkObjectResult(responseMessage);
-        }
+      _redirectService = redirectService;
     }
+
+    [Function("rdi")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "rdi/{hash}")] HttpRequest req, string hash)
+    {
+
+      string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+      dynamic data = JsonConvert.DeserializeObject(requestBody);
+
+      var hashOfUrl = hash;
+
+      if (hashOfUrl != null)
+      {
+        var result = _redirectService.GetRedirectURL(hashOfUrl);
+        return new RedirectResult(result);
+      }
+
+      return new OkObjectResult("empty body request");
+    }
+  }
 }
