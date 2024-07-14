@@ -24,7 +24,6 @@ namespace KeyGenerationService.Services
 
       if (url.Length > 0)
       {
-        var test = Constants.RedirectServiceEndpoint;
         var availableKey = _unitOfWork.GeneratedKeyRepository
           .GetAll().Where(m => m.UrlId is null
           && m.Active == true).First();
