@@ -15,7 +15,7 @@ namespace URLShortener.KeyGenerationService
 
     [Function("KGSFunction")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req)
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
     {
       //log.LogInformation("C# HTTP trigger function processed a request.");
 
