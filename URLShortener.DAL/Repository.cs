@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace KeyGenerationService.DAL
+namespace URLShortener.DAL
 {
   public class Repository<T> : IRepository<T> where T : class
   {

@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyGenerationService", "KeyGenerationService\KeyGenerationService.csproj", "{3C6F8ADA-B4FD-4633-8316-D2AF4B4B7A63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.KeyGenerationService", "URLShortener.KeyGenerationService\URLShortener.KeyGenerationService.csproj", "{3C6F8ADA-B4FD-4633-8316-D2AF4B4B7A63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyGenerationServiceTest", "KeyGenerationServiceTest\KeyGenerationServiceTest.csproj", "{C033E465-5CC8-4AAD-B381-20D70CAA26D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.KeyGenerationServiceTest", "URLShortener.KeyGenerationServiceTest\URLShortener.KeyGenerationServiceTest.csproj", "{C033E465-5CC8-4AAD-B381-20D70CAA26D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.CreateService", "URLShortener.CreateService\URLShortener.CreateService.csproj", "{65B354AE-E03A-4CA9-A6EB-8DC3F66B806F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.DAL", "URLShortener.DAL\URLShortener.DAL.csproj", "{C1DBF624-FD66-4A1D-9E61-FF57867A2AB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Models", "URLShortener.Models\URLShortener.Models.csproj", "{61C32A42-1DF2-4757-B504-2C4FF6220C48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{C033E465-5CC8-4AAD-B381-20D70CAA26D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C033E465-5CC8-4AAD-B381-20D70CAA26D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C033E465-5CC8-4AAD-B381-20D70CAA26D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65B354AE-E03A-4CA9-A6EB-8DC3F66B806F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B354AE-E03A-4CA9-A6EB-8DC3F66B806F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B354AE-E03A-4CA9-A6EB-8DC3F66B806F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B354AE-E03A-4CA9-A6EB-8DC3F66B806F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1DBF624-FD66-4A1D-9E61-FF57867A2AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1DBF624-FD66-4A1D-9E61-FF57867A2AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1DBF624-FD66-4A1D-9E61-FF57867A2AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1DBF624-FD66-4A1D-9E61-FF57867A2AB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61C32A42-1DF2-4757-B504-2C4FF6220C48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61C32A42-1DF2-4757-B504-2C4FF6220C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61C32A42-1DF2-4757-B504-2C4FF6220C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61C32A42-1DF2-4757-B504-2C4FF6220C48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

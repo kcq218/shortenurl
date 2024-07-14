@@ -1,5 +1,4 @@
-﻿namespace KeyGenerationService.Models;
-
+﻿namespace URLShortener.Models;
 public partial class UserInfo
 {
   public int Id { get; set; }
