@@ -2,6 +2,6 @@
 {
   public interface ICreateURLService
   {
-    void CreateURL(string url);
+    string CreateURL(string url);
   }
 }

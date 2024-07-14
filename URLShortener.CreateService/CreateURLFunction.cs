@@ -1,3 +1,4 @@
+using KeyGenerationService.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
@@ -7,25 +8,29 @@ using System.Threading.Tasks;
 
 namespace URLShortener.CreateService
 {
-  public static class CreateURLFunction
+  public class CreateURLFunction
   {
+    private ICreateURLService _createURLService;
+    public CreateURLFunction(ICreateURLService createURLService)
+    {
+      _createURLService = createURLService;
+    }
+
     [Function("CreateURLFunction")]
-    public static async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req)
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req)
     {
       //log.LogInformation("C# HTTP trigger function processed a request.");
 
-      string name = req.Query["name"];
+      string url = req.Query["url"];
 
       string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
       dynamic data = JsonConvert.DeserializeObject(requestBody);
-      name = name ?? data?.name;
+      url = url ?? data?.url;
 
-      string responseMessage = string.IsNullOrEmpty(name)
-          ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-          : $"Hello, {name}. This HTTP triggered function executed successfully.";
+      var redirectUrl = _createURLService.CreateURL(url);
 
-      return new OkObjectResult(responseMessage);
+      return new OkObjectResult(redirectUrl);
     }
   }
 }
