@@ -1,4 +1,5 @@
 ﻿using URLShortener.DAL;
+using URLShortener.Models;
 
 namespace URLShortener.ReadService.Services
 {
@@ -30,9 +31,18 @@ namespace URLShortener.ReadService.Services
       return "length of input is 0";
     }
 
-    public string GetURLMapping(string url)
+    public string GetURLHash(string url)
     {
-      throw new NotImplementedException();
+      Uri uriResult;
+      bool result = Uri.TryCreate(url, UriKind.Absolute, out uriResult)
+          && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+
+      if (result)
+      {
+        return Constants.RedirectServiceEndpoint + _unitOfWork.UrlMappingRepository.GetAll().Where(m => m.LongUrl == url).First().HashValue;
+      }
+
+      return "url is not in correct format, please try again";
     }
   }
 }
