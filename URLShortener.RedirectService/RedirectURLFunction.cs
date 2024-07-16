@@ -1,4 +1,3 @@
-using KeyGenerationService.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
@@ -6,6 +5,7 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using URLShortener.RedirectService.Services;
 
 namespace URLShortener.RedirectService
 {

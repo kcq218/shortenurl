@@ -1,7 +1,7 @@
-using KeyGenerationService.Services;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using URLShortener.CreateService.Services;
 using URLShortener.DAL;
 using URLShortener.Models;
 
