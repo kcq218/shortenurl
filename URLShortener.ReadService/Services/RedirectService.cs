@@ -1,13 +1,11 @@
-﻿using System;
-using System.Linq;
-using URLShortener.DAL;
+﻿using URLShortener.DAL;
 
-namespace URLShortener.RedirectService.Services
+namespace URLShortener.ReadService.Services
 {
-  public class RedirectService : IRedirectService
+  public class ReadURLService : IReadURLService
   {
     private IUnitOfWork _unitOfWork;
-    public RedirectService(IUnitOfWork unitOfWork)
+    public ReadURLService(IUnitOfWork unitOfWork)
     {
       _unitOfWork = unitOfWork;
     }
@@ -30,6 +28,11 @@ namespace URLShortener.RedirectService.Services
         return urlMapping.LongUrl;
       }
       return "length of input is 0";
+    }
+
+    public string GetURLMapping(string url)
+    {
+      throw new NotImplementedException();
     }
   }
 }

@@ -3,7 +3,7 @@ using System.Linq;
 using URLShortener.DAL;
 using URLShortener.Models;
 
-namespace KeyGenerationService.Services
+namespace URLShortener.CreateService.Services
 {
   public class CreateURLService : ICreateURLService
   {

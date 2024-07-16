@@ -1,4 +1,4 @@
-﻿namespace KeyGenerationService.Services
+﻿namespace URLShortener.CreateService.Services
 {
   public interface ICreateURLService
   {
