@@ -16,21 +16,43 @@ namespace URLShortener.CreateService.Services
     public string CreateURL(string url)
     {
       /*
-        Grab top 1 active key that are active 
+        check if url is in correct format
+        check for existing url if so return url
+        check if maximum keys have been used
+        if not continue
+        grab top 1 active key that are active 
         create url mapping
         associate it with key
         turn key inactive after association
        */
-      
+
       Uri uriResult;
       bool result = Uri.TryCreate(url, UriKind.Absolute, out uriResult)
           && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
 
       if (result)
       {
+
+        var exists = _unitOfWork.UrlMappingRepository.GetAll().Where(m => m.LongUrl == url).FirstOrDefault();
+
+        if (exists != null)
+        {
+          return Constants.RedirectServiceEndpoint + exists.HashValue;
+        }
+
+
+        var usedkeys = _unitOfWork.GeneratedKeyRepository
+          .GetAll().Where(m => m.UrlId is not null
+          && m.Active == false).Count();
+
+        if (usedkeys >= Constants.MaximumKeysInactive)
+        {
+          return "Maximum urls created";
+        }
+
         var availableKey = _unitOfWork.GeneratedKeyRepository
-          .GetAll().Where(m => m.UrlId is null
-          && m.Active == true).First();
+        .GetAll().Where(m => m.UrlId is null
+        && m.Active == true).First();
 
         var urlMapping = new UrlMapping();
         urlMapping.UserId = 1;
