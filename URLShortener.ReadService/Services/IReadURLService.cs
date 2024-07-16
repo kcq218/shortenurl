@@ -2,6 +2,6 @@
 {
   public interface IReadURLService
   {
-    string GetURLMapping(string url);
+    string GetURLHash(string url);
   }
 }
