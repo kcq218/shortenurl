@@ -3,7 +3,7 @@ using System.Linq;
 using URLShortener.DAL;
 using URLShortener.Models;
 
-namespace KeyGenerationService.Services
+namespace URLShortener.CreateService.Services
 {
   public class CreateURLService : ICreateURLService
   {
@@ -21,8 +21,12 @@ namespace KeyGenerationService.Services
         associate it with key
         turn key inactive after association
        */
+      
+      Uri uriResult;
+      bool result = Uri.TryCreate(url, UriKind.Absolute, out uriResult)
+          && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
 
-      if (url.Length > 0)
+      if (result)
       {
         var availableKey = _unitOfWork.GeneratedKeyRepository
           .GetAll().Where(m => m.UrlId is null
@@ -52,7 +56,7 @@ namespace KeyGenerationService.Services
 
         return createdurl;
       }
-      return "length of url is 0";
+      return "url is not in correct format, please try again";
     }
   }
 }
