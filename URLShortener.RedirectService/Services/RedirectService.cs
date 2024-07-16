@@ -2,7 +2,7 @@
 using System.Linq;
 using URLShortener.DAL;
 
-namespace KeyGenerationService.Services
+namespace URLShortener.RedirectService.Services
 {
   public class RedirectService : IRedirectService
   {

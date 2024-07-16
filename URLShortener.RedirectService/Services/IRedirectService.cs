@@ -1,4 +1,4 @@
-﻿namespace KeyGenerationService.Services
+﻿namespace URLShortener.RedirectService.Services
 {
   public interface IRedirectService
   {
