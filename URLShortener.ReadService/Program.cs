@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using URLShortener.DAL;
 using URLShortener.Models;
-using URLShortener.RedirectService.Services;
+using URLShortener.ReadService.Services;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
@@ -15,7 +15,7 @@ var host = new HostBuilder()
       services.AddScoped<IRepository<GeneratedKey>, Repository<GeneratedKey>>();
       services.AddScoped<IRepository<UrlMapping>, Repository<UrlMapping>>();
       services.AddScoped<IRepository<UserInfo>, Repository<UserInfo>>();
-      services.AddScoped<IRedirectService, RedirectService>();
+      services.AddScoped<IReadURLService, ReadURLService>();
     })
     .Build();
 
