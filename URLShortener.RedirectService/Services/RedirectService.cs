@@ -23,13 +23,17 @@ namespace URLShortener.RedirectService.Services
 
       if (hash.Length > 0)
       {
-        var urlMapping = _unitOfWork.UrlMappingRepository.GetAll().Where(m => m.HashValue == hash).First();
-        urlMapping.LastAccessed = DateTime.Now;
-        _unitOfWork.Save();
+        var urlMapping = _unitOfWork.UrlMappingRepository.GetAll().Where(m => m.HashValue == hash).FirstOrDefault();
 
-        return urlMapping.LongUrl;
+        if (urlMapping != null)
+        {
+          urlMapping.LastAccessed = DateTime.Now;
+          _unitOfWork.Save();
+
+          return urlMapping.LongUrl;
+        }
       }
-      return "length of input is 0";
+      return string.Empty;      
     }
   }
 }

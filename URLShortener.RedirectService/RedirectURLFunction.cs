@@ -31,10 +31,14 @@ namespace URLShortener.RedirectService
         if (hashOfUrl != null)
         {
           var result = _redirectService.GetRedirectURL(hashOfUrl);
-          return new RedirectResult(result);
+
+          if (result.Length > 0)
+          {
+            return new RedirectResult(result);
+          }
         }
 
-        return new OkObjectResult("empty body request");
+        return new OkObjectResult("no url found");
       }
       catch (Exception e)
       {
