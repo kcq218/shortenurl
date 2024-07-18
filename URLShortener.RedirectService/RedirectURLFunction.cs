@@ -38,7 +38,7 @@ namespace URLShortener.RedirectService
       }
       catch (Exception e)
       {
-        return new OkObjectResult(e.Message);
+        return new OkObjectResult(e.ToString());
 
       }
     }

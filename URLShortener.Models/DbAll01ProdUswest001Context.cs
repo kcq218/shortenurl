@@ -4,8 +4,10 @@ namespace URLShortener.Models;
 
 public partial class DbAll01ProdUswest001Context : DbContext
 {
+  private string _connString;
   public DbAll01ProdUswest001Context()
   {
+    _connString = Environment.GetEnvironmentVariable("cs-urlshortener");
   }
 
   public DbAll01ProdUswest001Context(DbContextOptions<DbAll01ProdUswest001Context> options)
@@ -21,7 +23,7 @@ public partial class DbAll01ProdUswest001Context : DbContext
 
   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-      => optionsBuilder.UseSqlServer("Server=tcp:dbs-allpurpose-prod-uswest-001.database.windows.net,1433;Initial Catalog=db-all01-prod-uswest-001;Persist Security Info=False;User ID=droopy00;Password=Kuya030625$$;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
+      => optionsBuilder.UseSqlServer(_connString);
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
