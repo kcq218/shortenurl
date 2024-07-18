@@ -9,6 +9,7 @@ namespace URLShortener.KeyGenerationService
   {
     private readonly IGenerateKeyService _generateKeyService;
     public KGSFunction(IGenerateKeyService generateKeyService)
+    public KGSFunction(IGenerateKeyService generateKeyService, IConfiguration configuration)
     {
       _generateKeyService = generateKeyService;
     }
