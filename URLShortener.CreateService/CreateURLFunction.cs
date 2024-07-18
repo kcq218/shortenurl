@@ -37,7 +37,7 @@ namespace URLShortener.CreateService
       }
       catch (Exception e)
       {
-        return new OkObjectResult(e.Message);
+        return new OkObjectResult(e.ToString());
       }
     }
   }
