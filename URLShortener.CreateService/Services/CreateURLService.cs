@@ -37,7 +37,7 @@ namespace URLShortener.CreateService.Services
 
         if (exists != null)
         {
-          return Constants.RedirectServiceEndpoint + exists.HashValue;
+          return Globals.RedirectServiceEndpoint + exists.HashValue;
         }
 
 
@@ -45,7 +45,7 @@ namespace URLShortener.CreateService.Services
           .GetAll().Where(m => m.UrlId is not null
           && m.Active == false).Count();
 
-        if (usedkeys >= Constants.MaximumKeysInactive)
+        if (usedkeys >= Globals.MaximumKeys)
         {
           return "Maximum urls created";
         }
@@ -74,7 +74,7 @@ namespace URLShortener.CreateService.Services
         _unitOfWork.GeneratedKeyRepository.Update(availableKey);
         _unitOfWork.Save();
 
-        var createdurl = Constants.RedirectServiceEndpoint + urlMapping.HashValue;
+        var createdurl = Globals.RedirectServiceEndpoint + urlMapping.HashValue;
 
         return createdurl;
       }

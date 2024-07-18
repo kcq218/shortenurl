@@ -39,8 +39,7 @@ namespace URLShortener.ReadService
       }
       catch (Exception e)
       {
-        return new OkObjectResult(e.Message);
-
+        return new OkObjectResult(e.ToString());
       }
     }
   }

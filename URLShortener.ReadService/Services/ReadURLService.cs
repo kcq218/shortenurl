@@ -13,12 +13,6 @@ namespace URLShortener.ReadService.Services
 
     public string GetRedirectURL(string hash)
     {
-      /*
-        Grab top 1 active key that are active 
-        create url mapping
-        associate it with key
-        turn key inactive after association
-       */
 
       if (hash.Length > 0)
       {
@@ -39,7 +33,14 @@ namespace URLShortener.ReadService.Services
 
       if (result)
       {
-        return Constants.RedirectServiceEndpoint + _unitOfWork.UrlMappingRepository.GetAll().Where(m => m.LongUrl == url).First().HashValue;
+        var urlMapping = _unitOfWork.UrlMappingRepository.GetAll().Where(m => m.LongUrl == url).FirstOrDefault();
+
+        if (urlMapping != null)
+        {
+          return Globals.RedirectServiceEndpoint + urlMapping.HashValue;
+        }
+
+        return "no url found";
       }
 
       return "url is not in correct format, please try again";
