@@ -1,8 +1,10 @@
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using URLShortener.DAL;
 using URLShortener.Models;
+using URLShortener.ReadService;
 using URLShortener.ReadService.Services;
 
 var host = new HostBuilder()
@@ -16,6 +18,7 @@ var host = new HostBuilder()
       services.AddScoped<IRepository<UrlMapping>, Repository<UrlMapping>>();
       services.AddScoped<IRepository<UserInfo>, Repository<UserInfo>>();
       services.AddScoped<IReadURLService, ReadURLService>();
+      services.AddScoped<ILogger<ReadURLFunction>, Logger<ReadURLFunction>>();
     })
     .Build();
 

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
 using System.IO;
@@ -12,9 +13,11 @@ namespace URLShortener.RedirectService
   public class RedirectURLFunction
   {
     private readonly IRedirectService _redirectService;
-    public RedirectURLFunction(IRedirectService redirectService)
+    private readonly ILogger<RedirectURLFunction> _logger;
+    public RedirectURLFunction(IRedirectService redirectService, ILogger<RedirectURLFunction> logger)
     {
       _redirectService = redirectService;
+      _logger = logger;
     }
 
     [Function("rdi")]
@@ -42,6 +45,8 @@ namespace URLShortener.RedirectService
       }
       catch (Exception e)
       {
+        _logger.LogError(e.ToString());
+
         return new OkObjectResult(e.ToString());
 
       }
