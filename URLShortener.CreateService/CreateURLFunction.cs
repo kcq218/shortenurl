@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
 using System.IO;
@@ -12,9 +13,11 @@ namespace URLShortener.CreateService
   public class CreateURLFunction
   {
     private ICreateURLService _createURLService;
-    public CreateURLFunction(ICreateURLService createURLService)
+    private ILogger<CreateURLFunction> _logger;
+    public CreateURLFunction(ICreateURLService createURLService, ILogger<CreateURLFunction> logger)
     {
       _createURLService = createURLService;
+      _logger = logger;
     }
 
     [Function("CreateURLFunction")]
@@ -37,6 +40,7 @@ namespace URLShortener.CreateService
       }
       catch (Exception e)
       {
+        _logger.LogError(e.ToString());
         return new OkObjectResult(e.ToString());
       }
     }

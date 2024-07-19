@@ -12,10 +12,10 @@ namespace URLShortener.ReadService
     private readonly ILogger<ReadURLFunction> _logger;
     private IReadURLService _readURLService;
 
-    public ReadURLFunction(ILogger<ReadURLFunction> logger, IReadURLService readURLService)
+    public ReadURLFunction(IReadURLService readURLService, ILogger<ReadURLFunction> logger)
     {
-      _logger = logger;
       _readURLService = readURLService;
+      _logger = logger;
     }
 
     [Function("read")]
@@ -23,7 +23,6 @@ namespace URLShortener.ReadService
     {
       try
       {
-
         string url = req.Query["url"];
 
         string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
@@ -39,6 +38,8 @@ namespace URLShortener.ReadService
       }
       catch (Exception e)
       {
+        _logger.LogError(e.ToString());
+
         return new OkObjectResult(e.ToString());
       }
     }
