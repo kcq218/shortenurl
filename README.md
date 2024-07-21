@@ -33,36 +33,21 @@ Set Budget Alerts when 50% of the budget is reached
 
 -TECHNOLOGIES USED
 
-C#
-
-.NET
-
-Windows
-
-Azure
-
-Azure Functions
-
-Azure SQL DB-Azure Key Vault
-
-App Insighs
-
-Azure Monitor
-
-PostMan
-
-Powershell
-
-Azure Load Balancer
-
-Azure Cache for Redis
-
-Azure Data Studio
-
-Visual Studio
-
-Github
-
+-C#
+-.NET
+-Windows
+-Azure
+-Azure Functions
+-Azure SQL DB-Azure Key Vault
+-App Insighs
+-Azure Monitor
+-PostMan
+-Powershell
+-Azure Load Balancer
+-Azure Cache for Redis
+-Azure Data Studio
+-Visual Studio
+-Github
 
 -DESIGN
 
