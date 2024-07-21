@@ -1,2 +1,2 @@
-# urlshortener
-url shortener self project
+# URL Shortener
+I wanted to understand how long urls are condensed into tyniurl so after research I decided to create a full project out of it
