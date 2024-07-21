@@ -42,4 +42,6 @@ Technologies used
 
 Design
 
-![shortenurl drawio](https://github.com/user-attachments/assets/f5e1622a-276c-44a2-ab30-87345918f011)
+
+![shortenurldesign drawio](https://github.com/user-attachments/assets/0697ad07-4633-42fa-b550-82533af4d667)
+
