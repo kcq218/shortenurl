@@ -2,8 +2,7 @@
 I wanted to understand how long urls are condensed into short resusable urls, and I wanted to build this in the cloud.
 After some research I decided to create a full project out of it.
 
-FUNCTIONAL REQUIREMENTS
-
+-FUNCTIONAL REQUIREMENTS
 
 Be able to generate a shorten url when given an input that is a valid URL
 
@@ -14,8 +13,7 @@ When given an existing url in the system return the existing shorten url
 the shorten urls are unique
 
 
-TECHNICAL REQUIREMENTS
-
+-TECHNICAL REQUIREMENTS
 
 Utilize Azure as a Cloud Platform
 
@@ -33,8 +31,7 @@ Create Unit Tests and have 90% code coverage for all microservices
 
 Set Budget Alerts when 50% of the budget is reached
 
-TECHNOLOGIES USED
-
+-TECHNOLOGIES USED
 
 C#
 
@@ -67,14 +64,12 @@ Visual Studio
 Github
 
 
-DESIGN
-
+-DESIGN
 
 ![shortenurldesign drawio](https://github.com/user-attachments/assets/0697ad07-4633-42fa-b550-82533af4d667)
 
 
-LESSONS LEARNED
-
+-LESSONS LEARNED
 
 Repository pattern should use class of T Type
 
@@ -86,8 +81,7 @@ Dependency injection is done at the program.cs level for .exe
 
 Use Ilogger<T> to log to app insights
 
-TO DO'S
-
+-TO DO'S
 
 Refactor to use async, and use all methods in create service.
 
