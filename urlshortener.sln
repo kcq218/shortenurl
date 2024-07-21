@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.KeyGenerationService", "URLShortener.KeyGenerationService\URLShortener.KeyGenerationService.csproj", "{3C6F8ADA-B4FD-4633-8316-D2AF4B4B7A63}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.KeyGenerationServiceTest", "URLShortener.KeyGenerationServiceTest\URLShortener.KeyGenerationServiceTest.csproj", "{C033E465-5CC8-4AAD-B381-20D70CAA26D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Test", "URLShortener.KeyGenerationServiceTest\URLShortener.Test.csproj", "{C033E465-5CC8-4AAD-B381-20D70CAA26D0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.CreateService", "URLShortener.CreateService\URLShortener.CreateService.csproj", "{65B354AE-E03A-4CA9-A6EB-8DC3F66B806F}"
 EndProject
@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Models", "URLS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.RedirectService", "URLShortener.RedirectService\URLShortener.RedirectService.csproj", "{C9959D52-4F71-4F96-B86C-2983A4FF71A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.ReadService", "URLShortener.ReadService\URLShortener.ReadService.csproj", "{A2E5AEEE-3448-46AD-85A5-FA3DFDDC016D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.ReadService", "URLShortener.ReadService\URLShortener.ReadService.csproj", "{A2E5AEEE-3448-46AD-85A5-FA3DFDDC016D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

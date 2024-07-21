@@ -33,7 +33,7 @@ namespace URLShortener.RedirectService.Services
           return urlMapping.LongUrl;
         }
       }
-      return string.Empty;      
+      return string.Empty;
     }
   }
 }

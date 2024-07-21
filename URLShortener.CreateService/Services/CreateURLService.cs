@@ -47,7 +47,7 @@ namespace URLShortener.CreateService.Services
 
         if (usedkeys >= Globals.MaximumKeys)
         {
-          return "Maximum urls created";
+          return Globals.MaximumURLsCreated;
         }
 
         var availableKey = _unitOfWork.GeneratedKeyRepository
@@ -78,7 +78,7 @@ namespace URLShortener.CreateService.Services
 
         return createdurl;
       }
-      return "url is not in correct format, please try again";
+      return Globals.URLIsNotInCorrectFormatMessage;
     }
   }
 }
