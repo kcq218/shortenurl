@@ -4,6 +4,7 @@ After some research I decided to create a full project out of it.
 
 FUNCTIONAL REQUIREMENTS
 
+
 Be able to generate a shorten url when given an input that is a valid URL
 
 The URL generated should be a valid url that maps back to the original destination
@@ -14,6 +15,7 @@ the shorten urls are unique
 
 
 TECHNICAL REQUIREMENTS
+
 
 Utilize Azure as a Cloud Platform
 
@@ -32,6 +34,7 @@ Create Unit Tests and have 90% code coverage for all microservices
 Set Budget Alerts when 50% of the budget is reached
 
 TECHNOLOGIES USED
+
 
 C#
 
@@ -72,6 +75,7 @@ DESIGN
 
 LESSONS LEARNED
 
+
 Repository pattern should use class of T Type
 
 This benefits when you only need to change the database at the unit of work level
@@ -83,6 +87,7 @@ Dependency injection is done at the program.cs level for .exe
 Use Ilogger<T> to log to app insights
 
 TO DO'S
+
 
 Refactor to use async, and use all methods in create service.
 
