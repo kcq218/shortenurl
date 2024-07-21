@@ -45,3 +45,29 @@ Design
 
 ![shortenurldesign drawio](https://github.com/user-attachments/assets/0697ad07-4633-42fa-b550-82533af4d667)
 
+
+Lessons Learned
+
+Repository pattern should use class of T Type
+
+This benefits when you only need to change the database at the unit of work level
+
+Use isolated dot net to remove the need of web jobs libraries. Functions should also replace functions name in attributes
+
+Dependency injection is done at the program.cs level for .exe
+
+Use Ilogger<T> to log to app insights
+
+To Do's
+
+Refactor to use async, and use all methods in create service.
+
+Leverage -Azure Cache for Redis for redirect and read routes
+
+Put a Load Balancer in front of API interfaces
+
+Use provider authentication and create unique user profiles
+
+
+
+
