@@ -75,3 +75,5 @@ Leverage -Azure Cache for Redis for redirect and read routes
 Put a Load Balancer in front of API interfaces
 
 Use provider authentication and create unique user profiles
+
+Finish Clean Up Service to remove keys that have not been active for at least six months
