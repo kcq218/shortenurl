@@ -2,9 +2,8 @@ using Moq;
 using URLShortener.DAL;
 using URLShortener.Models;
 using URLShortener.ReadService.Services;
-using URLShortener.Test;
 
-namespace URLShortener.KeyGenerationServiceTest
+namespace URLShortener.Test
 {
   [TestClass]
   public class ReadURLServiceTest
