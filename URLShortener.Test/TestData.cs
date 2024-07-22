@@ -27,7 +27,7 @@ namespace URLShortener.Test
       return Globals.URLIsNotInCorrectFormatMessage;
     }
 
-    public string GitHubURLMapping()
+    public string GithubRedirectURL()
     {
       return "https://urlrdi.azurewebsites.net/api/rdi/abc123";
     }
@@ -50,6 +50,11 @@ namespace URLShortener.Test
     public string NotFoundURLMessage()
     {
       return Globals.NoURLFound;
+    }
+
+    public string InvlidHashCode()
+    {
+      return "bad123";
     }
 
   }
