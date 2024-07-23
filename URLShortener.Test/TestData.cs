@@ -25,7 +25,7 @@ namespace URLShortener.Test
     {
       return new GeneratedKey()
       {
-        
+
         Id = 1,
         UrlId = 1,
         Active = true,
