@@ -23,8 +23,8 @@ namespace URLShortener.Test
       _context = new Mock<DbAll01ProdUswest001Context>();
       _dbSet = new Mock<DbSet<GeneratedKey>>();
       _context.Setup(m => m.Set<GeneratedKey>()).Returns(_dbSet.Object);
-      _MockUnitofWork.Setup(m => m.GeneratedKeyRepository).Returns(new Repository<GeneratedKey>(_context.Object));
       _MockUnitofWork = new Mock<IUnitOfWork>();
+      _MockUnitofWork.Setup(m => m.GeneratedKeyRepository).Returns(new Repository<GeneratedKey>(_context.Object));
       _MockUnitofWork.Setup(m => m.Save()).Verifiable();
       _service = new GenerateKeyService(_MockUnitofWork.Object);
     }
