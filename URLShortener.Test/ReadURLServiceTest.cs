@@ -11,6 +11,7 @@ namespace URLShortener.Test
 
     private Mock<IUnitOfWork> _MockUnitofWork;
     private TestData _TestData;
+    private ReadURLService _service;
 
     [TestInitialize]
     public void Initialize()
@@ -18,15 +19,16 @@ namespace URLShortener.Test
       _TestData = new TestData();
       _MockUnitofWork = new Mock<IUnitOfWork>();
 
-      _MockUnitofWork.Setup(m => m.UrlMappingRepository.GetAll()).Returns(new List<UrlMapping>() { _TestData.githubURLMapping() });
+      _MockUnitofWork.Setup(m => m.UrlMappingRepository.GetAll()).Returns(new List<UrlMapping>() { _TestData.GithubURLMapping() });
+      _MockUnitofWork.Setup(m => m.Save()).Verifiable();
+      _service = new ReadURLService(_MockUnitofWork.Object);
     }
 
     [TestMethod]
     public void ReadServiceShouldReturnURLBadFormat()
     {
       Initialize();
-      var readURLService = new ReadURLService(_MockUnitofWork.Object);
-      var result = readURLService.GetURLHash(_TestData.InvalidUrlFormat());
+      var result = _service.GetURLHash(_TestData.InvalidUrlFormat());
 
       Assert.AreEqual(_TestData.InvalidURLFormatMessage(), result);
     }
@@ -35,18 +37,16 @@ namespace URLShortener.Test
     public void ReadServiceShouldReturnGitHub()
     {
       Initialize();
-      var readURLService = new ReadURLService(_MockUnitofWork.Object);
-      var result = readURLService.GetURLHash(_TestData.GitHubUrl());
+      var result = _service.GetURLHash(_TestData.GitHubUrl());
 
-      Assert.AreEqual(_TestData.githubURLMapping().HashValue, result);
+      Assert.AreEqual(_TestData.GithubURLMapping().HashValue, result);
     }
 
     [TestMethod]
     public void ReadServiceShouldReturnNoURLFound()
     {
       Initialize();
-      var readURLService = new ReadURLService(_MockUnitofWork.Object);
-      var result = readURLService.GetURLHash(_TestData.NotFoundURL());
+      var result = _service.GetURLHash(_TestData.NotFoundURL());
 
       Assert.AreEqual(_TestData.NotFoundURLMessage(), result);
     }

@@ -4,7 +4,7 @@ namespace URLShortener.Test
 {
   public class TestData
   {
-    public UrlMapping githubURLMapping()
+    public UrlMapping GithubURLMapping()
     {
       return new UrlMapping()
       {
@@ -21,7 +21,21 @@ namespace URLShortener.Test
         UserId = 1
       };
     }
-
+    public GeneratedKey GeneratedKey()
+    {
+      return new GeneratedKey()
+      {
+        
+        Id = 1,
+        UrlId = 1,
+        Active = true,
+        CreatedBy = "mock",
+        CreatedDate = DateTime.Now,
+        HashValue = "abc123",
+        UpdatedBy = "mock",
+        UpdatedDate = DateTime.Now
+      };
+    }
     public string InvalidURLFormatMessage()
     {
       return Globals.URLIsNotInCorrectFormatMessage;

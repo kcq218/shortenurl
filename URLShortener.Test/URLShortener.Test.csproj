@@ -21,7 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\URLShortener.CreateService\URLShortener.CreateService.csproj" />
     <ProjectReference Include="..\URLShortener.DAL\URLShortener.DAL.csproj" />
+    <ProjectReference Include="..\URLShortener.KeyGenerationService\URLShortener.KeyGenerationService.csproj" />
     <ProjectReference Include="..\URLShortener.ReadService\URLShortener.ReadService.csproj" />
     <ProjectReference Include="..\URLShortener.RedirectService\URLShortener.RedirectService.csproj" />
   </ItemGroup>

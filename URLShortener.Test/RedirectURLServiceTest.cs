@@ -10,7 +10,7 @@ namespace URLShortener.Test
 
     private Mock<IUnitOfWork> _MockUnitofWork;
     private TestData _TestData;
-    private RedirectService.Services.RedirectService _service;
+    private URLShortener.RedirectService.Services.RedirectService _service;
 
     [TestInitialize]
     public void Initialize()
@@ -18,7 +18,7 @@ namespace URLShortener.Test
       _TestData = new TestData();
       _MockUnitofWork = new Mock<IUnitOfWork>();
 
-      _MockUnitofWork.Setup(m => m.UrlMappingRepository.GetAll()).Returns(new List<UrlMapping>() { _TestData.githubURLMapping() });
+      _MockUnitofWork.Setup(m => m.UrlMappingRepository.GetAll()).Returns(new List<UrlMapping>() { _TestData.GithubURLMapping() });
       _MockUnitofWork.Setup(m => m.Save()).Verifiable();
       _service = new RedirectService.Services.RedirectService(_MockUnitofWork.Object);
     }
@@ -38,7 +38,7 @@ namespace URLShortener.Test
     public void GetRedirectURLShouldSaveOnce()
     {
       Initialize();
-      var result = _service.GetRedirectURL(_TestData.githubURLMapping().HashValue);
+      var result = _service.GetRedirectURL(_TestData.GithubURLMapping().HashValue);
 
       _MockUnitofWork.Verify(m => m.Save(), Times.Once);
     }
@@ -47,7 +47,7 @@ namespace URLShortener.Test
     public void GetRedirectURLShouldRedirectURL()
     {
       Initialize();
-      var result = _service.GetRedirectURL(_TestData.githubURLMapping().HashValue);
+      var result = _service.GetRedirectURL(_TestData.GithubURLMapping().HashValue);
 
       Assert.AreEqual(_TestData.GitHubUrl(), result);
     }
