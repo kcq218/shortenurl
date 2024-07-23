@@ -35,7 +35,7 @@ namespace KeyGenerationService.Services
           key.UpdatedBy = "droopy";
           key.UpdatedDate = DateTime.Now;
 
-          //GeneratedKeysRepository.Add(key);
+          GeneratedKeysRepository.Add(key);
         }
         else
         {
@@ -43,7 +43,7 @@ namespace KeyGenerationService.Services
         }
       }
 
-      //_unitOfWork.Save();
+      _unitOfWork.Save();
     }
   }
 }
