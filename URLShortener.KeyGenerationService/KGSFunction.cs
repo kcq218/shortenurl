@@ -19,14 +19,15 @@ namespace URLShortener.KeyGenerationService
 
     [Function("KGSFunction")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
+        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "v1/kgs")] HttpRequest req)
     {
 
       try
       {
         string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        string clientId = req.Query["clientId"];
 
-        _generateKeyService.Generate(Globals.MaximumKeys);
+                _generateKeyService.Generate(Globals.MaximumKeys, clientId);
         string responseMessage = "Successfully Triggered Function";
 
         return new OkObjectResult(responseMessage);

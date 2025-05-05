@@ -13,7 +13,7 @@ namespace URLShortener.CreateService.Services
       _unitOfWork = unitOfWork;
     }
 
-    public string CreateURL(string url)
+    public string CreateURL(string url, string clientId)
     {
       /*
         check if url is in correct format
@@ -59,9 +59,9 @@ namespace URLShortener.CreateService.Services
         urlMapping.KeyId = availableKey.Id;
         urlMapping.HashValue = availableKey.HashValue;
         urlMapping.LongUrl = url;
-        urlMapping.CreatedBy = "droopy";
+        urlMapping.CreatedBy = clientId;
         urlMapping.CreatedDate = DateTime.Now;
-        urlMapping.UpdatedBy = "droopy";
+        urlMapping.UpdatedBy = clientId;
         urlMapping.UpdatedDate = DateTime.Now;
         urlMapping.Active = true;
         _unitOfWork.UrlMappingRepository.Add(urlMapping);
@@ -69,7 +69,7 @@ namespace URLShortener.CreateService.Services
 
         availableKey.UrlId = urlMapping.Id;
         availableKey.Active = false;
-        availableKey.UpdatedBy = "droopy";
+        availableKey.UpdatedBy = clientId;
         availableKey.UpdatedDate = DateTime.Now;
         _unitOfWork.GeneratedKeyRepository.Update(availableKey);
         _unitOfWork.Save();
