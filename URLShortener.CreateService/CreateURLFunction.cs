@@ -22,19 +22,19 @@ namespace URLShortener.CreateService
 
     [Function("CreateURLFunction")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "v1/user")] HttpRequest req)
+        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req)
     {
       try
       {
         //log.LogInformation("C# HTTP trigger function processed a request.");
 
         string url = req.Query["url"];
-        string clientId = req.Query["clientId"];
-                string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
         dynamic data = JsonConvert.DeserializeObject(requestBody);
         url = url ?? data?.url;
 
-        var redirectUrl = _createURLService.CreateURL(url, clientId);
+        var redirectUrl = _createURLService.CreateURL(url);
 
         return new OkObjectResult(redirectUrl);
       }

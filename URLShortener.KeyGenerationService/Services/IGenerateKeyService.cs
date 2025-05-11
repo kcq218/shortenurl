@@ -2,6 +2,6 @@
 {
   public interface IGenerateKeyService
   {
-    void Generate(int numberOfKeys, string clientId);
+    void Generate(int numberOfKeys);
   }
 }

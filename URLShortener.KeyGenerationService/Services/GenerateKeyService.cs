@@ -10,7 +10,7 @@ namespace KeyGenerationService.Services
     {
       _unitOfWork = unitOfWork;
     }
-    public void Generate(int numberOfKeys, string clientId)
+    public void Generate(int numberOfKeys)
     {
       var GeneratedKeysRepository = _unitOfWork.GeneratedKeyRepository;
 
@@ -30,12 +30,12 @@ namespace KeyGenerationService.Services
 
           key.HashValue = result;
 
-          key.CreatedBy = clientId;
+          key.CreatedBy = "droopy";
           key.CreatedDate = DateTime.Now;
-          key.UpdatedBy = clientId;
+          key.UpdatedBy = "droopy";
           key.UpdatedDate = DateTime.Now;
 
-          GeneratedKeysRepository.Add(key);
+          //GeneratedKeysRepository.Add(key);
         }
         else
         {
@@ -43,7 +43,7 @@ namespace KeyGenerationService.Services
         }
       }
 
-      _unitOfWork.Save();
+      //_unitOfWork.Save();
     }
   }
 }
